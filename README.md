@@ -1,16 +1,16 @@
 # Hafta 3
 Bu depoda, ders kapsamında gerçekleştirilen ağ güvenliği ve sızma testleri uygulamalarının ekran görüntüleri ve açıklamaları yer almaktadır.
 
-Temel Kavramlar
-* **
-ARP (Address Resolution Protocol - Adres Çözümleme Protokolü): Yerel ağda (LAN) bir cihazın bildiği IP adresine karşılık gelen fiziksel MAC adresini bulmasını sağlayan ağ protokolüdür. Cihazlar birbirleriyle haberleşmeden önce ARP kullanarak "Bu IP adresine sahip cihazın MAC adresi nedir?" sorusunu ağa sorarlar.
-* **
-Flooding (Taşkın / Seliçi Saldırı): Bir ağ cihazının veya sistemin kapasitesini aşacak büyüklükte ve hızda veri/istek gönderilerek kilitlenmesini veya normal işlevini yapamaz hale getirilmesini hedefleyen saldırı türüdür.
+Temel Kavramlar:
 
+ARP (Address Resolution Protocol - Adres Çözümleme Protokolü): Yerel ağda (LAN) bir cihazın bildiği IP adresine karşılık gelen fiziksel MAC adresini bulmasını sağlayan ağ protokolüdür. Cihazlar birbirleriyle haberleşmeden önce ARP kullanarak "Bu IP adresine sahip cihazın MAC adresi nedir?" sorusunu ağa sorarlar.
+
+Flooding (Taşkın / Seliçi Saldırı): Bir ağ cihazının veya sistemin kapasitesini aşacak büyüklükte ve hızda veri/istek gönderilerek kilitlenmesini veya normal işlevini yapamaz hale getirilmesini hedefleyen saldırı türüdür.
+* **
 Bu hafta gerçekleştirilen uygulamada, yerel ağlardaki anahtarlama (Switching) mekanizmasının çalışma mantığı ve güvenlik açıkları incelenmiştir.
 
-### Amaç: Switch cihazlarının üzerinde bulunan ve MAC adreslerini portlarla eşleştiren **CAM (Content Addressable Memory) tablosunu** kasıtlı olarak doldurmak ve ağ güvenliğindeki bir zafiyeti gözlemlemek.
-### Uygulama: Kali Linux işletim sistemi üzerinde `macof` aracı kullanılarak ağa saniyede yüzlerce sahte (random) MAC adresi ve paket gönderilmiştir.
+Amaç: Switch cihazlarının üzerinde bulunan ve MAC adreslerini portlarla eşleştiren **CAM (Content Addressable Memory) tablosunu** kasıtlı olarak doldurmak ve ağ güvenliğindeki bir zafiyeti gözlemlemek.
+Uygulama: Kali Linux işletim sistemi üzerinde `macof` aracı kullanılarak ağa saniyede yüzlerce sahte (random) MAC adresi ve paket gönderilmiştir.
 Ekran görüntüsünde yer alan komut satırı (`sudo macof -i ...`) bu yoğun paket akışının üretildiğini ve sistemin trafiğe boğulduğunu göstermektedir.
 
 ### Sonuç ve Kazanımlar
