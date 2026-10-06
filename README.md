@@ -1,7 +1,7 @@
 # Hafta 3
 Bu depoda, ders kapsamında gerçekleştirilen ağ güvenliği ve sızma testleri uygulamalarının ekran görüntüleri ve açıklamaları yer almaktadır.
 
-## Temel Kavramlar
+Temel Kavramlar
 * **
 ARP (Address Resolution Protocol - Adres Çözümleme Protokolü): Yerel ağda (LAN) bir cihazın bildiği IP adresine karşılık gelen fiziksel MAC adresini bulmasını sağlayan ağ protokolüdür. Cihazlar birbirleriyle haberleşmeden önce ARP kullanarak "Bu IP adresine sahip cihazın MAC adresi nedir?" sorusunu ağa sorarlar.
 * **
