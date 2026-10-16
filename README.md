@@ -19,3 +19,17 @@ Ekran görüntüsünde yer alan komut satırı (`sudo macof -i ...`) bu yoğun p
 3. **Güvenlik Riski:** Bu durum, saldırganın aynı ağdaki diğer bilgisayarların trafiğini dinlemesine (Sniffing) ve Man-in-the-Middle (Ortadaki Adam) saldırılarına zemin hazırlar. Bu lab çalışması ile **Port Security** önlemlerinin neden hayati olduğu uygulamalı olarak kavranmıştır.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
+
+# Hafta 4
+Basit Hedef Erişim Testi (Ping Script)
+
+Bu proje, **Siber Güvenlik** dersi kapsamında Linux/Bash ortamında temel otomasyon becerileri kazanmak ve ağ üzerindeki hedeflerin erişilebilirliğini test etmek amacıyla geliştirilmiştir.
+
+## Ne Amaçla Yapıldı? (Projenin Amacı)
+Siber güvenlik testlerinde, ağ analizlerinde (Penetration Testing) veya günlük sistem yönetiminde hedeflenen bir IP adresinin veya web sitesinin aktif olup olmadığını (ağa yanıt verip vermediğini) hızlıca kontrol etmek kritik bir adımdır. 
+Bu ödevin amacı; her defasında terminale uzun komutlar yazmak yerine, kullanıcıdan girdi (`read`) alabilen ve bu girdiyi sistem komutlarıyla (`ping`) otomatik işleyen **ilk temel Bash betiğini (script)** yazmayı öğrenmektir.
+
+## Tam Olarak Ne İşe Yarar? (Çalışma Mantığı)
+1. **Dinamik Girdi Alır:** Çalıştırıldığında kullanıcıya *"Saldırılacak websitesi veya IP adresini giriniz"* şeklinde bir komut istemi sunar.
+2. **Kullanıcı Girdisini İşler:** Klavyeden girilen hedef adresi (`github.com`, `google.com` veya bir IP) hafızaya kaydeder.
+3. **Erişilebilirlik Testi Yapar (Ping):** Alınan hedef adrese ICMP paketleri göndererek hedef sistemin ayakta olup olmadığını ve veri alışverişi yapıp yapamadığını test eder. Böylece hedef sistemin yanıt verip vermediği ekranda raporlanır.
