@@ -68,7 +68,7 @@ Gönderici programında Python'un `socket` kütüphanesi kullanılarak bir UDP s
 
 Programda ayrıca `IP_MTU_DISCOVER` ve `IP_PMTUDISC_DONT` seçenekleri kullanılarak Linux ortamındaki IPv4 Path MTU Discovery davranışıyla ilgili ayarlar yapılmıştır.
 
-![UDP Veri Gönderici](images/hafta5-sender.png)
+![UDP Veri Gönderici]
 
 ## UDP Veri Alıcı (Receiver)
 
@@ -82,7 +82,7 @@ Program, gelen UDP verisini beklemekte ve veri ulaştığında gönderen cihazı
 
 Ekran görüntüsünde 4000 baytlık verinin alındığı ve gönderen adresinin `172.16.107.22` olduğu görülmektedir.
 
-![UDP Veri Alıcı](images/hafta5-receiver.png)
+![UDP Veri Alıcı]
 
 ## Sonuç ve Kazanımlar
 
