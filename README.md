@@ -33,3 +33,63 @@ Bu ödevin amacı; her defasında terminale uzun komutlar yazmak yerine, kullan�
 1. **Dinamik Girdi Alır:** Çalıştırıldığında kullanıcıya *"Saldırılacak websitesi veya IP adresini giriniz"* şeklinde bir komut istemi sunar.
 2. **Kullanıcı Girdisini İşler:** Klavyeden girilen hedef adresi (`github.com`, `google.com` veya bir IP) hafızaya kaydeder.
 3. **Erişilebilirlik Testi Yapar (Ping):** Alınan hedef adrese ICMP paketleri göndererek hedef sistemin ayakta olup olmadığını ve veri alışverişi yapıp yapamadığını test eder. Böylece hedef sistemin yanıt verip vermediği ekranda raporlanır.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Hafta 5
+
+Bu depoda, Siber Güvenlik dersi kapsamında gerçekleştirilen Python ile UDP veri gönderme ve alma uygulamasına ait ekran görüntüleri ve açıklamalar yer almaktadır.
+
+## Temel Kavramlar
+
+**UDP (User Datagram Protocol - Kullanıcı Datagram Protokolü):** Ağ üzerindeki cihazlar arasında veri aktarımını sağlayan, bağlantı kurmadan çalışan bir taşıma katmanı protokolüdür.
+
+**Socket (Soket):** Uygulamaların ağ üzerinden veri gönderip almasını sağlayan yazılım arayüzüdür. Python'da `socket` kütüphanesi kullanılarak ağ iletişimi gerçekleştirilebilir.
+
+**IP Adresi ve Port:** IP adresi hedef cihazı, port numarası ise cihaz üzerindeki uygulamanın iletişim uç noktasını belirtir.
+
+**MTU (Maximum Transmission Unit):** Bir ağ bağlantısında tek bir pakette taşınabilecek veri miktarını ifade eder. MTU sınırını aşan IP paketleri parçalanabilir veya iletim sırasında başarısız olabilir.
+
+## Uygulamanın Amacı
+
+Bu hafta gerçekleştirilen uygulamada, Python programlama dili kullanılarak UDP protokolü üzerinden veri gönderme ve alma işlemleri gerçekleştirilmiştir. Ayrıca büyük boyutlu verilerin aktarımı ve IP parçalanmasıyla ilgili ayarlar incelenmiştir.
+
+## UDP Veri Gönderici (Sender)
+
+Gönderici programında Python'un `socket` kütüphanesi kullanılarak bir UDP soketi oluşturulmuştur.
+
+- **Hedef IP adresi:** `172.16.107.22`
+- **Hedef port:** `5000`
+- **Veri boyutu:** `4000` bayt
+- **Protokol:** UDP
+
+`b"A" * 4000` komutuyla 4000 baytlık veri oluşturulmuş ve `sendto()` fonksiyonu kullanılarak hedef IP adresine gönderilmiştir.
+
+Programda ayrıca `IP_MTU_DISCOVER` ve `IP_PMTUDISC_DONT` seçenekleri kullanılarak Linux ortamındaki IPv4 Path MTU Discovery davranışıyla ilgili ayarlar yapılmıştır.
+
+![UDP Veri Gönderici](images/hafta5-sender.png)
+
+## UDP Veri Alıcı (Receiver)
+
+Alıcı programında UDP soketi oluşturulmuş ve `bind()` fonksiyonu ile `0.0.0.0` adresinin `8000` portuna bağlanılmıştır.
+
+- **Dinleme adresi:** `0.0.0.0`
+- **Dinleme portu:** `8000`
+- **Veri alma fonksiyonu:** `recvfrom()`
+
+Program, gelen UDP verisini beklemekte ve veri ulaştığında gönderen cihazın IP adresini, portunu ve alınan verinin boyutunu ekrana yazdırmaktadır. Ayrıca alınan verinin ilk 40 baytı görüntülenmektedir.
+
+Ekran görüntüsünde 4000 baytlık verinin alındığı ve gönderen adresinin `172.16.107.22` olduğu görülmektedir.
+
+![UDP Veri Alıcı](images/hafta5-receiver.png)
+
+## Sonuç ve Kazanımlar
+
+- Python ile UDP soketi oluşturma, veri gönderme ve veri alma işlemleri öğrenilmiştir.
+- `sendto()` ve `recvfrom()` fonksiyonlarının kullanımı incelenmiştir.
+- IP adresi ve port numaralarının ağ iletişimindeki önemi kavranmıştır.
+- MTU ve IP parçalanması kavramları değerlendirilmiştir.
+- UDP protokolünün bağlantısız yapısı ve veri teslimatını garanti etmemesi hakkında bilgi edinilmiştir.
+
+Bu uygulama sayesinde Python ile temel ağ programlama becerileri geliştirilmiş ve UDP protokolünün çalışma mantığı uygulamalı olarak incelenmiştir.
