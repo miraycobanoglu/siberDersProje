@@ -93,3 +93,20 @@ Ekran görüntüsünde 4000 baytlık verinin alındığı ve gönderen adresinin
 - UDP protokolünün bağlantısız yapısı ve veri teslimatını garanti etmemesi hakkında bilgi edinilmiştir.
 
 Bu uygulama sayesinde Python ile temel ağ programlama becerileri geliştirilmiş ve UDP protokolünün çalışma mantığı uygulamalı olarak incelenmiştir.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+# Hafta 5 (git ve github betiği)
+
+## Otomatik Git ve GitHub Yükleme Betiği
+
+Bu proje, Siber Güvenlik dersi kapsamında Linux/Bash ortamında temel otomasyon, sürüm kontrol süreçlerini komut satırından yönetmek ve GitHub yükleme adımlarını otomatikleştirmek amacıyla geliştirilmiştir
+
+### Ne Amaçla Yapıldı? (Projenin Amacı)
+Yazılım geliştirme, siber güvenlik araçları yazımı ve sistem yönetimi süreçlerinde hazırlanan kodların veya analiz raporlarının GitHub gibi uzak depolara (remote repository) düzenli aktarılması gerekir. Normal şartlarda bir dosyayı uzak depoya yüklemek için birden fazla terminal komutunun (`git init`, `git add`, `git commit`, `git branch`, `git remote`, `git push`) her defasında sırayla ve hatasız yazılması gerekir. Bu ödevin amacı; her seferinde bu komutları tek tek elle girmek yerine, kullanıcıdan dinamik girdi (`read`) alarak yeni bir dosya oluşturan ve tüm Git adımlarını arka planda tek seferde tamamlayan bir Bash betiği (`saldiri.sh`) yazılır.
+
+### Tam Olarak Ne İşe Yarar? (Çalışma Mantığı)
+1. **Dinamik Girdileri Alır:** Betik çalıştırıldığında kullanıcıdan önce yüklenecek dosya adını (`FILE_NAME`), ardından dosyanın gönderileceği GitHub repo adresini (`REPO_URL`) girmesini ister.
+2. **Dosyayı Otomatik Oluşturur:** Kullanıcının girdiği dosya adıyla sistemde sıfırdan bir dosya oluşturur ve içine başlık formatında dosya ismini ekler (`echo "# $FILE_NAME" > "$FILE_NAME"`).
+3. **Yerel Git Deposunu Hazırlar:** Bulunulan dizinde `git init` ile Git yapısını başlatır, dosyayı `git add` ile takibe alır, `git commit -m "first commit"` ile ilk kaydı oluşturur ve ana dalı `git branch -M main` olarak ayarlar.
+4. **Uzak Depoyu Bağlar ve Yükler (Push):** Varsa çakışan eski remote adresini temizler (`git remote remove origin 2>/dev/null`), kullanıcının verdiği bağlantıyı `git remote add origin "$REPO_URL"` ile ekler ve `git push -u origin main` komutuyla dosyayı doğrudan GitHub repoya aktarır. İşlem başarıyla bittiğinde ekrana tebrik mesajı verir
