@@ -96,9 +96,7 @@ Bu uygulama sayesinde Python ile temel ağ programlama becerileri geliştirilmi�
 
 -------------------------------------------------------------------------------------------------------------------------
 
-# Hafta 5 (git ve github betiği)
-
-## Otomatik Git ve GitHub Yükleme Betiği
+# Hafta 5 (Otomatik Git ve GitHub Yükleme Betiği)
 
 Bu proje, Siber Güvenlik dersi kapsamında Linux/Bash ortamında temel otomasyon, sürüm kontrol süreçlerini komut satırından yönetmek ve GitHub yükleme adımlarını otomatikleştirmek amacıyla geliştirilmiştir
 
